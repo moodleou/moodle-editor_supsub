@@ -14,14 +14,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TinyMCE helper javascript functions
+ * Helper javascript functions for the superscript/subscript editor.
  *
- * @package    editor_tinymce
- * @copyright  2010 Petr Skoda (skodak) info@skoda.org
+ * @package    editor
+ * @subpackage supsub
+ * @copyright  2011 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-M.editor_supsub = M.editor_tinymce || {};
+M.editor_supsub = M.editor_supsub || {};
 
 M.editor_supsub.init_editor = function(Y, editorid, options) {
     tinymce.PluginManager.load('supsub', M.cfg.wwwroot + '/lib/editor/supsub/supsub_plugin.js');

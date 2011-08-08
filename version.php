@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,9 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Very cut-down version of TinyMCE that just allows <sup> and <sub> tags.
- *
- * Relies of the tinymce editor being installed.
+ * Superscript/subscript editor version information.
  *
  * @package    editor
  * @subpackage supsub

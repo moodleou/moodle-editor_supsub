@@ -15,9 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Very cut-down version of TinyMCE that just allows <sup> and <sub> tags.
+ * Superscript/subscript editor. A very cut-down version of TinyMCE that just
+ * allows <sup> and <sub> tags.
  *
- * Relies of the tinymce editor being installed.
+ * Relies of the full tinymce editor plugin being installed.
  *
  * @package    editor
  * @subpackage supsub
@@ -75,7 +76,8 @@ class supsub_texteditor extends texteditor {
         } else {
             $PAGE->requires->js('/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce.js');
         }
-        $PAGE->requires->js_init_call('M.editor_supsub.init_editor', array($elementid, $this->get_init_params($elementid, $options)), true);
+        $PAGE->requires->js_init_call('M.editor_supsub.init_editor',
+                array($elementid, $this->get_init_params($elementid, $options)), true);
     }
 
     protected function get_init_params($elementid, array $options = null) {
@@ -87,7 +89,8 @@ class supsub_texteditor extends texteditor {
 
         $params = array(
             'apply_source_formatting' => true,
-            'content_css' => $contentcss . ',' . $CFG->httpswwwroot . '/lib/editor/supsub/extra.css',
+            'content_css' => $contentcss . ',' . $CFG->httpswwwroot .
+                    '/lib/editor/supsub/extra.css',
             'directionality' => $directionality,
             'document_base_url' => $CFG->httpswwwroot,
             'elements' => $elementid,
@@ -142,7 +145,8 @@ class supsub_texteditor extends texteditor {
                 break;
 
             default:
-                throw new coding_exception('Invalid option "supsub". Must be one of both, sup or sub.');
+                throw new coding_exception("Invalid value '" .$options['supsub'] .
+                        "' for option 'supsub'. Must be one of 'both', 'sup' or 'sub'.");
         }
 
         return $params;
