@@ -24,13 +24,15 @@
 M.editor_supsub = M.editor_tinymce || {};
 
 M.editor_supsub.init_editor = function(Y, editorid, options) {
+    if (tinymce.isGecko) {
+        options.theme_advanced_resizing_min_height += 10;
+        options.height += 10;
+    }
     tinyMCE.init(options);
 };
 
-M.editor_supsub.event_callback = function(e) {
-    if (e.type != 'keydown') {
-        return true;
+M.editor_supsub.init_instance_callback = function(inst) {
+    if (!tinymce.isGecko) {
+        document.getElementById(inst.editorId + '_ifr').scrolling = 'No';
     }
-
-    return true;
 }
