@@ -100,7 +100,7 @@ class supsub_texteditor extends texteditor {
             'language' => $lang,
             'mode' => 'exact',
             'nowrap' => true,
-            'plugins' => 'supsub',
+            'plugins' => '-supsub',
             'relative_urls' => false,
             'remove_script_host' => false,
             'skin' => "o2k7",
@@ -119,6 +119,31 @@ class supsub_texteditor extends texteditor {
             'valid_elements' => '-sup,-sub',
             'valid_children' => 'body[sup|sub|#text],sup[#text],sub[#text]',
         );
+
+        if (empty($options['supsub'])) {
+            $options['supsub'] = 'both';
+        }
+
+        switch ($options['supsub']) {
+            case 'both':
+                // Do nothing, the $params above are for this case.
+                break;
+
+            case 'sup':
+                $params['theme_advanced_buttons1'] = 'sup';
+                $params['valid_elements'] = '-sup';
+                $params['valid_children'] = 'body[sup|#text],sup[#text]';
+                break;
+
+            case 'sub':
+                $params['theme_advanced_buttons1'] = 'sub';
+                $params['valid_elements'] = '-sub';
+                $params['valid_children'] = 'body[sub|#text],sub[#text]';
+                break;
+
+            default:
+                throw new coding_exception('Invalid option "supsub". Must be one of both, sup or sub.');
+        }
 
         return $params;
     }

@@ -24,11 +24,12 @@
 M.editor_supsub = M.editor_tinymce || {};
 
 M.editor_supsub.init_editor = function(Y, editorid, options) {
+    tinymce.PluginManager.load('supsub', M.cfg.wwwroot + '/lib/editor/supsub/supsub_plugin.js');
     if (tinymce.isGecko) {
         options.theme_advanced_resizing_min_height += 10;
         options.height += 10;
     }
-    tinyMCE.init(options);
+    tinymce.init(options);
 };
 
 M.editor_supsub.init_instance_callback = function(inst) {
