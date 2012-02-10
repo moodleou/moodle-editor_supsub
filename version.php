@@ -24,11 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2011080300;
+$plugin->version   = 2012021000;
 $plugin->requires  = 2010070300;
 $plugin->cron      = 0;
 $plugin->component = 'editor_supsub';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '2.x (Build: 2011051000)';
+$plugin->release   = '1.0';
 
 $plugin->dependencies = array('editor_tinymce' => ANY_VERSION);
