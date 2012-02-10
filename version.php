@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2012021000;
-$plugin->requires  = 2010070300;
+$plugin->requires  = 2010112400;
 $plugin->cron      = 0;
 $plugin->component = 'editor_supsub';
 $plugin->maturity  = MATURITY_STABLE;
