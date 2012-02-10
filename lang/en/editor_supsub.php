@@ -17,8 +17,7 @@
 /**
  * Strings for component 'editor_supsub', language 'en', branch 'MOODLE_20_STABLE'
  *
- * @package    editor
- * @subpackage supsub
+ * @package    editor_supsub
  * @copyright  2011 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

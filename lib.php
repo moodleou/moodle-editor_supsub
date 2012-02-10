@@ -20,8 +20,7 @@
  *
  * Relies of the full tinymce editor plugin being installed.
  *
- * @package    editor
- * @subpackage supsub
+ * @package    editor_supsub
  * @copyright  2011 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,10 +28,21 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once($CFG->libdir . '/lib/editor/tinymce/lib.php');
 
+
+/**
+ * Superscript/subscript editor. A very cut-down version of TinyMCE that just
+ * allows <sup> and <sub> tags.
+ *
+ * Relies of the full tinymce editor plugin being installed.
+ *
+ * @copyright  2011 The Open University
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class supsub_texteditor extends texteditor {
     /** @var string active version of tinyMCE used - directory name */
-    public $version = '3.4.2';
+    public $version = null; // Set below to match core tinymce.
 
     public function supported_by_browser() {
         if (check_browser_version('MSIE', 6)) {
@@ -152,3 +162,6 @@ class supsub_texteditor extends texteditor {
         return $params;
     }
 }
+
+// Hack to avoid having to update this plugin everytime core updates TinyMCE.
+supsub_texteditor::$version = tinymce_texteditor::$version;

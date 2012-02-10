@@ -11,10 +11,10 @@ This should be compatible with Moodle 2.0+.
 
 To install using git, type this commands in the root of your Moodle 
 install
-    git clone git://github.com/timhunt/moodle-editor_supsub.git lib/editor/supsub
+    git clone git://github.com/moodleou/moodle-editor_supsub.git lib/editor/supsub
     echo '/lib/editor/supsub' >> .git/info/exclude
 
 Alternatively, download the zip from
-    https://github.com/timhunt/moodle-editor_supsub/zipball/master
+    https://github.com/moodleou/moodle-editor_supsub/zipball/master
 unzip it into the lib/editor folder, and then rename the extracted 
 folder to supsub.

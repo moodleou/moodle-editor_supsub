@@ -17,13 +17,18 @@
 /**
  * Superscript/subscript editor version information.
  *
- * @package    editor
- * @subpackage supsub
+ * @package    editor_supsub
  * @copyright  2011 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version  = 2011080300;
-$plugin->requires = 2010070300;
+$plugin->version   = 2011080300;
+$plugin->requires  = 2010070300;
+$plugin->cron      = 0;
+$plugin->component = 'editor_supsub';
+$plugin->maturity  = MATURITY_STABLE;
+$plugin->release   = '2.x (Build: 2011051000)';
+
+$plugin->dependencies = array('editor_tinymce' => ANY_VERSION);
