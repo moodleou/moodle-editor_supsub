@@ -28,7 +28,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir . '/lib/editor/tinymce/lib.php');
+require_once($CFG->libdir . '/editor/tinymce/lib.php');
 
 
 /**
@@ -43,6 +43,12 @@ require_once($CFG->libdir . '/lib/editor/tinymce/lib.php');
 class supsub_texteditor extends texteditor {
     /** @var string active version of tinyMCE used - directory name */
     public $version = null; // Set below to match core tinymce.
+
+    public function __construct() {
+        // Hack to avoid having to update this plugin everytime core updates TinyMCE.
+        $tinymce = new tinymce_texteditor();
+        $this->version = $tinymce->version;
+    }
 
     public function supported_by_browser() {
         if (check_browser_version('MSIE', 6)) {
@@ -162,6 +168,3 @@ class supsub_texteditor extends texteditor {
         return $params;
     }
 }
-
-// Hack to avoid having to update this plugin everytime core updates TinyMCE.
-supsub_texteditor::$version = tinymce_texteditor::$version;
