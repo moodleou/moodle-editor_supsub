@@ -36,4 +36,4 @@ M.editor_supsub.init_instance_callback = function(inst) {
     if (!tinymce.isGecko) {
         document.getElementById(inst.editorId + '_ifr').scrolling = 'No';
     }
-}
+};

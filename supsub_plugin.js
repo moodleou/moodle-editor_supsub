@@ -33,9 +33,8 @@
          * of the editor instance to intercept that event.
          *
          * @param {tinymce.Editor} ed Editor instance that the plugin is initialized in.
-         * @param {string} url Absolute URL to where the plugin is located.
          */
-        init : function(ed, url) {
+        init : function(ed) {
             ed.onKeyDown.add(function(ed, e) {
                 switch (e.keyCode) {
 
@@ -46,6 +45,7 @@
                 case 38: // Up arrow
                     if (ed.queryCommandState('superscript')) {
                         // Already superscript. Do nothing.
+                        /*jshint noempty:false */
                     } else if (ed.queryCommandState('subscript')) {
                         // Is subscript. Do subscript again to turn it off.
                         ed.execCommand('subscript');
