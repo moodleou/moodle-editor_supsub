@@ -49,8 +49,8 @@
                     } else if (ed.queryCommandState('subscript')) {
                         // Is subscript. Do subscript again to turn it off.
                         ed.execCommand('subscript');
-                    } else {
-                        // Normal text. Make it superscript.
+                    } else if (ed.schema.elements.sup) {
+                        // Normal text, and superscript is allowed, so do it.
                         ed.execCommand('superscript');
                     }
                     tinymce.dom.Event.cancel(e);
@@ -62,8 +62,8 @@
                         ed.execCommand('superscript');
                     } else if (ed.queryCommandState('subscript')) {
                         // Already subscript. Do nothing.
-                    } else {
-                        // Normal text. Make it subscript.
+                    } else if (ed.schema.elements.sub) {
+                        // Normal text, and subscript is allowed, so do it.
                         ed.execCommand('subscript');
                     }
                     tinymce.dom.Event.cancel(e);
