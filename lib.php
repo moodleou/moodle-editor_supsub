@@ -105,6 +105,11 @@ class supsub_texteditor extends texteditor {
         $lang           = current_language();
         $contentcss     = $PAGE->theme->editor_css_url()->out(false);
 
+        $langrev = -1;
+        if (!empty($CFG->cachejs)) {
+            $langrev = get_string_manager()->get_revision();
+        }
+
         $params = array(
             'apply_source_formatting' => true,
             'content_css' => $contentcss . ',' . $CFG->httpswwwroot .
@@ -118,9 +123,12 @@ class supsub_texteditor extends texteditor {
             'force_p_newlines' => false,
             'height' => 30,
             'init_instance_callback' => 'M.editor_supsub.init_instance_callback',
+            'langrev' => $langrev,
             'language' => $lang,
+            'language_load' => false, // We load all lang strings directly from Moodle.
             'min_height' => 30,
             'mode' => 'exact',
+            'moodle_plugin_base' => "$CFG->httpswwwroot/lib/editor/tinymce/plugins/",
             'nowrap' => true,
             'paste_auto_cleanup_on_paste' => true,
             'plugins' => '-supsub,paste',
