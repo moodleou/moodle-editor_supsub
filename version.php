@@ -24,11 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2013021100;
-$plugin->requires  = 2010112400;
+$plugin->version   = 2013072500;
+$plugin->requires  = 2012120300;
 $plugin->cron      = 0;
 $plugin->component = 'editor_supsub';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '1.3';
+$plugin->release   = '1.4 for Moodle 2.4+';
 
 $plugin->dependencies = array('editor_tinymce' => ANY_VERSION);
