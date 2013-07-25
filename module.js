@@ -22,8 +22,16 @@
  */
 
 M.editor_supsub = M.editor_supsub || {};
+M.editor_supsub.initialised = false;
 
 M.editor_supsub.init_editor = function(Y, editorid, options) {
+    if (!M.editor_supsub.initialised) {
+        // Load all language strings for all plugins - we do not use standard TinyMCE lang pack loading!
+        tinymce.ScriptLoader.add(M.cfg.wwwroot + '/lib/editor/tinymce/all_strings.php?elanguage=' + options.language + '&rev=' + options.langrev);
+
+        M.editor_supsub.initialised = true;
+    }
+
     tinymce.PluginManager.load('supsub', M.cfg.wwwroot + '/lib/editor/supsub/supsub_plugin.js');
     if (tinymce.isGecko) {
         options.theme_advanced_resizing_min_height += 10;
