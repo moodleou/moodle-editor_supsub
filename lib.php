@@ -51,19 +51,19 @@ class supsub_texteditor extends texteditor {
     }
 
     public function supported_by_browser() {
-        if (check_browser_version('MSIE', 6)) {
+        if (core_useragent::check_browser_version('MSIE', 6)) {
             return true;
         }
-        if (check_browser_version('Gecko', 20030516)) {
+        if (core_useragent::check_browser_version('Gecko', 20030516)) {
             return true;
         }
-        if (check_browser_version('Safari', 412)) {
+        if (core_useragent::check_browser_version('Safari', 412)) {
             return true;
         }
-        if (check_browser_version('Chrome', 6)) {
+        if (core_useragent::check_browser_version('Chrome', 6)) {
             return true;
         }
-        if (check_browser_version('Opera', 9)) {
+        if (core_useragent::check_browser_version('Opera', 9)) {
             return true;
         }
 
