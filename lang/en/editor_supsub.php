@@ -23,4 +23,4 @@
  */
 
 
-$string['pluginname'] = 'Superscript/subscript editor';
+$string['pluginname'] = 'Old superscript/subscript editor';
